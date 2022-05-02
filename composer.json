@@ -1,0 +1,48 @@
+{
+    "name":"andriesreitsma/laravel-visa",
+    "description": "My Laravel Passport add-on package",
+    "keywords": ["laravel", "auth"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/andriesreitsma/visa/issues",
+        "source": "https://github.com/andriesreitsma/visa"
+    },
+    "homepage": "https://andriesreitsma.nl",
+    "authors": [
+        {
+            "name": "Andries Reitsma B.V.",
+            "email": "studio@andriesreitsma.nl"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "ext-json": "*",
+        "illuminate/support": "^6|^7|^8|^9",
+        "laravel/passport": "^10.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload":{
+        "psr-4":{
+            "AndriesReitsma\\Visa\\":"src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AndriesReitsma\\Visa\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AndriesReitsma\\Visa\\VisaServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
