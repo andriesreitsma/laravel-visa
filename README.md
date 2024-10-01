@@ -30,3 +30,20 @@ Logout is as simple as loggin in:
 ```js
     await axios.post('/logout');
 ```
+
+Since CSRF vurnability there's a workaround for posting with `axios`:
+```js
+import Axios from 'axios'
+
+const axios = Axios.create({
+    baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Accept': 'application/json'
+    },
+    withCredentials: true,
+    withXSRFToken: true  //Workaround
+})
+
+export default axios
+```
