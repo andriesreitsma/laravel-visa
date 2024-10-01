@@ -5,7 +5,7 @@ use AndriesReitsma\Visa\Http\Controllers\CookieController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('login', [AuthenticationController::class, 'store'])
-    ->middleware('guest')
+    ->middleware('web')
     ->name('login');
 
 Route::post('logout', [AuthenticationController::class, 'destroy'])

@@ -3,6 +3,7 @@
 namespace AndriesReitsma\Visa\Http\Controllers;
 
 use AndriesReitsma\Visa\Http\Requests\LoginRequest;
+use App\Http\Resources\UserResource;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -30,7 +31,7 @@ class AuthenticationController extends Controller
 
         $request->session()->regenerate();
 
-        return response()->noContent()->withCookie(
+        return response(UserResource::make($request->user('web')))->withCookie(
             app()->make(ApiTokenCookieFactory::class)->make(
                 $request->user('web')->getAuthIdentifier(),
                 $request->session()->token()
